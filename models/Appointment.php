@@ -6,7 +6,7 @@ class Appointment
     private int $id_user;
     private int $id_slot;
     private int $id_service;
-    public function __constructor($data)
+    public function __construct($data)
     {
         $this->id = $data["id"];
         $this->id_user = $data["id_user"];
@@ -31,3 +31,4 @@ class Appointment
         return $this->id_service;
     }
 }
+

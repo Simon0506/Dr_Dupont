@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr Dupont</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="views/style.css">
+    <script src="https://kit.fontawesome.com/274d342162.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="flex flex-col min-h-screen">
-    <header class="bg-blue-50 text-blue-900 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center gap-6">
-            <a href="index.php" class="text-xl font-bold italic text-blue-900">Dr Dupont</a>
-            <nav class="space-x-3">
+<body>
+    <header>
+        <nav>
+            <a href="index.php" class="logo">
+                <i class="fa-solid fa-tooth">DR DUPONT</i>
+            </a>
+            <div class="navbar">
                 <a href="index.php?page=home">Accueil</a>
                 <a href="index.php?page=services">Nos services</a>
                 <a href="index.php?page=about">A propos</a>
@@ -28,7 +31,7 @@
                     <?php } ?>
                     <a href="index.php?page=logout">Déconnexion</a>
                 <?php } ?>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
-    <main class="max-w-7xl mx-auto px-4 pt-10 grow">
+    <main>

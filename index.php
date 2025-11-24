@@ -21,10 +21,8 @@ else if ($page === "register")
     $usersController->register();
 else if ($page === "register-valid")
     $usersController->registerValid();
-else if ($page === "registerAdmin")
-    $usersController->registerAdmin();
-else if ($page === "registerAdmin-valid")
-    $usersController->registerAdminValid();
+else if ($page === "about")
+    $postsController->about();
 else if ($page === "login")
     $usersController->login();
 else if ($page === "login-valid")
@@ -43,8 +41,16 @@ else if ($page === "appointment-valid")
     $usersController->appointmentValid();
 else if ($page === "admin")
     $adminController->admin();
-else if ($page === "appointmentsAdmin")
-    $adminController->appointmentsAdmin();
+else if ($page === "list")
+    $adminController->list();
+else if ($page === "appointmentAdmin")
+    $adminController->appointmentAdmin();
+else if ($page === "update-appointment")
+    $adminController->updateAppointment();
+else if ($page === "update-appointment-valid")
+    $adminController->updateAppointmentValid();
+else if ($page === "delete-appointment")
+    $adminController->deleteAppointment();
 else if ($page === "postsAdmin")
     $adminController->postsAdmin();
 else if ($page === "services")
@@ -79,6 +85,8 @@ else if ($page === "create-post-valid")
     $adminController->adminCreatePostValid();
 else if ($page === "news")
     $postsController->news();
+else if ($page === "article")
+    $postsController->article();
 else if ($page === "delete-post")
     $adminController->deletePost();
 else if ($page === "update-post")

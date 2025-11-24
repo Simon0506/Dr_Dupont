@@ -14,15 +14,17 @@
         </div>
     <?php } ?>
     <div class="appointment">
-        <form method="POST" action="index.php?page=appointment-date-valid&id=<?php echo $user->getId(); ?>"
-            enctype="multipart/form-data">
+        <form method="POST" action="index.php?page=appointment-date-valid" enctype="multipart/form-data">
             <div class="data">
                 <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" placeholder="Votre nom" class="input"
-                    value="<?php echo $user->getName(); ?>" disabled>
+                <select name="name" id="name" class="input">
+                    <?php foreach ($patients as $patient) { ?>
+                        <option value="<?php echo $patient->getId(); ?>"><?php echo $patient->getName(); ?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="data">
-                <label for="date">Jour du rendez-vous : </label>
+                <label for="date">Jour du rendez-vous :</label>
                 <?php if (isset($_GET['date'])) { ?>
                     <input type="date" id="date" name="date" value="<?php echo $_GET['date'] ?>" class="date" required>
                 <?php } else { ?>
@@ -33,6 +35,7 @@
                 <?php if (isset($_GET['date'])) { ?>
                     <button class="button">Actualiser</button>
                 <?php } else { ?>
+                    <a href="index.php?page=admin" class="button">Annuler</a>
                     <button class="button">Voir les créneaux disponibles</button>
                 <?php } ?>
             </div>
@@ -61,6 +64,7 @@
                     </select>
                 </div>
                 <div class="appointmentBtn">
+                    <a href="index.php?page=admin" class="button">Annuler</a>
                     <button class="button">Valider le rendez-vous</button>
                 </div>
             </form>

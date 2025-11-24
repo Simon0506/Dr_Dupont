@@ -16,11 +16,20 @@ class PostsController
         require 'views/home.php';
     }
 
+
     public function news()
     {
         $postsManager = new PostsManager();
         $articles = $postsManager->getPosts();
+
         require 'views/news.php';
+    }
+    public function article()
+    {
+        $postsManager = new PostsManager();
+        $article = $postsManager->getPost($_GET['id']);
+
+        require 'views/article.php';
     }
 
     public function services()
@@ -30,5 +39,8 @@ class PostsController
         require 'views/services.php';
     }
 
-
+    public function about()
+    {
+        require 'views/about.php';
+    }
 }

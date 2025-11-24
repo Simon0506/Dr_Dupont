@@ -1,45 +1,78 @@
 <?php include 'header.php'; ?>
 
-<h1 class="text-3xl font-bold mb-10 text-center">Paramètres administrateurs</h1>
-<div class="text-center font-semibold">
-    <div class="grid md:grid-cols-2 gap-8 items-center my-6">
-        <h2 class="text-xl">Gestion des rendez-vous</h2>
-        <a href="index.php?page=appointmentsAdmin"
-            class="py-4 text-2xl rounded-2xl bg-blue-900 text-white shadow-lg hover:bg-blue-500 transition">
-            Rendez-vous
-        </a>
+<?php if (isset($_GET['dateValidated'])) { ?>
+    <p class="validated">Rendez-vous du <?php echo date('d/m/Y', strtotime($_GET['dateValidated'])); ?> à
+        <?php echo date('G\hi', strtotime($_GET['hour'])); ?> pour <?php echo $user->getName(); ?> validé !
+    </p>
+<?php } ?>
+<?php if (isset($_GET['dateUpdated'])) { ?>
+    <p class="updated">Rendez-vous du <?php echo date('d/m/Y', strtotime($_GET['dateUpdated'])); ?> à
+        <?php echo date('G\hi', strtotime($_GET['hour'])); ?> pour <?php echo $user->getName(); ?> mis à jour !
+    </p>
+<?php } ?>
+
+<div class="adminPage">
+    <div>
+        <h1 class="title">Rendez-vous de la journée du
+            <?php echo date('d/m/Y', strtotime($_GET['date'] ?? $today->format('Y-m-d'))); ?>
+        </h1>
+        <form class="adminForm" action="index.php?page=list" method="POST">
+            <div>
+                <label for="date">Changer de date : </label>
+                <input type="date" id="date" class="date" name="date"
+                    value="<?php echo date('Y-m-d', strtotime($date)); ?>">
+            </div>
+            <button class="button">Actualiser</button>
+        </form>
+        <table class="list">
+            <thead>
+                <tr>
+                    <th>
+                        Heure</th>
+                    <th>Nom du patient</th>
+                    <th>Motif</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data as $entry) { ?>
+                    <tr
+                        class="<?php if (date('Y-m-d', strtotime($date)) < $today->format('Y-m-d') || (date('Y-m-d', strtotime($date)) === $today->format('Y-m-d') && date('H:i:s', strtotime($entry['hour'])) < date('H:i:s'))) { ?> rowPast <?php } ?>">
+                        <td>
+                            <?php echo date('G\hi', strtotime($entry['hour'])); ?>
+                        </td>
+                        <td><?php echo $entry['patient']->getName(); ?></td>
+                        <td><?php echo $entry['service']->getName(); ?></td>
+                        <td class="actions">
+                            <a href="index.php?page=update-appointment&id_slot=<?php echo $entry['id_slot']; ?>&date=<?php echo date('Y-m-d', strtotime($_GET['date'] ?? $today->format('Y-m-d'))); ?>"
+                                class="update">Modifier</a>
+                            <a href="index.php?page=delete-appointment&id=<?php echo $entry['id_slot']; ?>"
+                                class="delete">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
-    <div class="h-[1px] w-[50%] bg-gray-500 mx-auto"></div>
-    <div class="grid md:grid-cols-2 gap-8 items-center my-6">
-        <a href="index.php?page=servicesAdmin"
-            class="py-4 text-2xl rounded-2xl bg-blue-900 text-white shadow-lg hover:bg-blue-500 transition">
-            Services
-        </a>
-        <h2 class="text-xl">Gestion des services proposés</h2>
-    </div>
-    <div class="h-[1px] w-[50%] bg-gray-500 mx-auto"></div>
-    <div class="grid md:grid-cols-2 gap-8 items-center my-6">
-        <h2 class="text-xl">Gestion des actualités</h2>
-        <a href="index.php?page=postsAdmin"
-            class="py-4 text-2xl rounded-2xl bg-blue-900 text-white shadow-lg hover:bg-blue-500 transition">
-            Actualités
-        </a>
-    </div>
-    <div class="h-[1px] w-[50%] bg-gray-500 mx-auto"></div>
-    <div class="grid md:grid-cols-2 gap-8 items-center my-6">
-        <a href="index.php?page=patientsAdmin"
-            class="py-4 text-2xl rounded-2xl bg-blue-900 text-white shadow-lg hover:bg-blue-500 transition">
-            Patients
-        </a>
-        <h2 class="text-xl">Gestion des patients</h2>
-    </div>
-    <div class="h-[1px] w-[50%] bg-gray-500 mx-auto"></div>
-    <div class="grid md:grid-cols-2 gap-8 items-center my-6">
-        <h2 class="text-xl">Gestion des horaires</h2>
-        <a href="index.php?page=update-date"
-            class="py-4 text-2xl rounded-2xl bg-blue-900 text-white shadow-lg hover:bg-blue-500 transition">
-            Horaires
-        </a>
+    <div>
+        <h2>Paramètres</h2>
+        <div class="settings">
+            <a href="index.php?page=appointmentAdmin" class="button">
+                Ajouter un RDV
+            </a>
+            <a href="index.php?page=patientsAdmin" class="button">
+                Patients
+            </a>
+            <a href="index.php?page=servicesAdmin" class="button">
+                Services
+            </a>
+            <a href="index.php?page=postsAdmin" class="button">
+                Actualités
+            </a>
+            <a href="index.php?page=update-date" class="button">
+                Horaires
+            </a>
+        </div>
     </div>
 </div>
 

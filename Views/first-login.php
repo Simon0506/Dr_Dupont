@@ -1,20 +1,20 @@
 <?php include 'header.php'; ?>
 
-<div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md mx-auto my-12">
-    <h1 class="text-2xl font-bold mb-6">Créez votre mot de passe</h1>
+<div class="login">
+    <h1 class="title">Créez votre mot de passe</h1>
     <?php
     if (isset($_GET['error']) && $_GET['error'] === 'fields') { ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">Merci de renseigner tous les
+        <div class="error">Merci de renseigner tous les
             champs
         </div>
     <?php } else if (isset($_GET['error']) && $_GET['error'] === 'credentials') { ?>
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">Email inconnu
+            <div class="error">Email inconnu
             </div>
     <?php } ?>
-    <form class="space-y-4" action="index.php?page=first-login-valid" method="POST">
-        <input type="email" name="email" placeholder="Email" class="w-full border rounded-lg p-3">
-        <input type="password" name="password" placeholder="Mot de passe" class="w-full border rounded-lg p-3">
-        <button class="w-full bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-500">Enregistrer</button>
+    <form action="index.php?page=first-login-valid" method="POST">
+        <input type="email" name="email" placeholder="Email" class="input">
+        <input type="password" name="password" placeholder="Mot de passe" class="input">
+        <button class="button">Enregistrer</button>
     </form>
 </div>
 

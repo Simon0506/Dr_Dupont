@@ -1,30 +1,48 @@
 <?php include 'header.php'; ?>
 
-<div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md mx-auto my-12">
-    <h1 class="text-2xl font-bold mb-6">Ajouter un nouveau patient</h1>
+<div class="addPage">
+    <h1 class="title">Ajouter un nouveau patient</h1>
     <?php
     if (isset($_GET['error']) && $_GET['error'] === 'email-format') { ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">Format d'email invalide
+        <div class="error">Format d'email invalide
         </div>
     <?php } ?>
     <?php
     if (isset($_GET['error']) && $_GET['error'] === 'email-used') { ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">Email déjà utilisée
+        <div class="error">Email déjà utilisée
         </div>
     <?php } ?>
     <?php
     if (isset($_GET['error']) && $_GET['error'] === 'fields') { ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">Merci de remplir tous les champs
+        <div class="error">Merci de remplir tous les champs
         </div>
     <?php } ?>
-    <form class="space-y-4" action="index.php?page=create-patient-valid" method="POST">
-        <input type="text" name="name" placeholder="Nom complet" class="w-full border rounded-lg p-3">
-        <input type="email" name="email" placeholder="Email" class="w-full border rounded-lg p-3">
-        <input type="date" name="dateOfBirth" placeholder="Date de naissance" class="w-full border rounded-lg p-3">
-        <input type="text" pattern="\d{15}" maxlength="15" name="SSN"
-            placeholder="Numéro de Sécurité sociale (15 chiffres)" class="w-full border rounded-lg p-3">
-        <input type="text" name="phone" placeholder="Téléphone" class="w-full border rounded-lg p-3">
-        <button class="w-full bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-500">Ajouter le patient</button>
+    <form action="index.php?page=create-patient-valid" method="POST" class="addForm">
+        <div class="gridInput">
+            <label for="name">Nom complet : </label>
+            <input type="text" id="name" name="name" placeholder="Nom complet" class="input">
+        </div>
+        <div class="gridInput">
+            <label for="email">Email : </label>
+            <input type="email" id="email" name="email" placeholder="Email" class="input">
+        </div>
+        <div class="gridInput">
+            <label for="DOB">Date de naissance : </label>
+            <input type="date" id="DOB" name="dateOfBirth" class="date">
+        </div>
+        <div class="gridInput">
+            <label for="SSN">Sécurité sociale : </label>
+            <input type="text" id="SSN" pattern="\d{15}" maxlength="15" name="SSN"
+                placeholder="Numéro de Sécurité sociale (15 chiffres)" class="input">
+        </div>
+        <div class="gridInput">
+            <label for="phone">Téléphone : </label>
+            <input type="text" id="phone" name="phone" placeholder="Téléphone" class="input">
+        </div>
+        <div>
+            <a href="index.php?page=patientsAdmin" class="button">Annuler</a>
+            <button class="button">Ajouter le patient</button>
+        </div>
     </form>
 </div>
 

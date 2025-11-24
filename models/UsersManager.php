@@ -39,12 +39,6 @@ class UsersManager
         $request = $pdo->prepare("UPDATE users SET password = ? WHERE email = ?");
         $request->execute([$password, $email]);
     }
-    public function registerAdmin(string $name, string $email, string $password)
-    {
-        $pdo = $this->connectDB();
-        $request = $pdo->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'pro')");
-        $request->execute([$name, $email, $password]);
-    }
 
     public function getUser(string $email)
     {

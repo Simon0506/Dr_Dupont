@@ -24,3 +24,16 @@ class Slot
         return $this->hour;
     }
 }
+
+class Hour
+{
+    private string $hour;
+    public function __construct($data)
+    {
+        $this->hour = $data["hour"];
+    }
+    public function getHour()
+    {
+        return $this->hour;
+    }
+}
