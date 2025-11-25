@@ -7,6 +7,7 @@
     <title>Dr Dupont</title>
     <link rel="stylesheet" href="views/style.css">
     <script src="https://kit.fontawesome.com/274d342162.js" crossorigin="anonymous"></script>
+    <script src="views/script.js" defer></script>
 </head>
 
 <body>
@@ -15,7 +16,12 @@
             <a href="index.php" class="logo">
                 <i class="fa-solid fa-tooth">DR DUPONT</i>
             </a>
-            <div class="navbar">
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="navbar" id="menu">
                 <a href="index.php?page=home">Accueil</a>
                 <a href="index.php?page=services">Nos services</a>
                 <a href="index.php?page=about">A propos</a>

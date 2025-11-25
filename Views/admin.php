@@ -17,7 +17,7 @@
             <?php echo date('d/m/Y', strtotime($_GET['date'] ?? $today->format('Y-m-d'))); ?>
         </h1>
         <form class="adminForm" action="index.php?page=list" method="POST">
-            <div>
+            <div class="gridInput">
                 <label for="date">Changer de date : </label>
                 <input type="date" id="date" class="date" name="date"
                     value="<?php echo date('Y-m-d', strtotime($date)); ?>">
@@ -57,7 +57,7 @@
     <div>
         <h2>Paramètres</h2>
         <div class="settings">
-            <a href="index.php?page=appointmentAdmin" class="button">
+            <a href="index.php?page=appointmentAdmin" class="button setting1">
                 Ajouter un RDV
             </a>
             <a href="index.php?page=patientsAdmin" class="button">
