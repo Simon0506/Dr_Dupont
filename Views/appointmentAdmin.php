@@ -5,7 +5,7 @@
     <?php
     if (isset($_GET['error']) && $_GET['error'] === 'closed') { ?>
         <div class="error">Le cabinet dentaire est fermé le
-            <?php echo date('d/m/Y', strtotime($_GET['error'])); ?>. Merci de choisir une autre date.
+            <?php echo date('d/m/Y', strtotime($_GET['date'])); ?>. Merci de choisir une autre date.
         </div>
     <?php } ?>
     <?php
@@ -19,7 +19,8 @@
                 <label for="name">Nom :</label>
                 <select name="name" id="name" class="input">
                     <?php foreach ($patients as $patient) { ?>
-                        <option value="<?php echo $patient->getId(); ?>"><?php echo $patient->getName(); ?></option>
+                        <option value="<?php echo $patient->getId(); ?>" <?php if (isset($_GET['id']) && $patient->getId() === (int) $_GET['id']) { ?>selected<?php } ?>><?php echo $patient->getName(); ?>
+                        </option>
                     <?php } ?>
                 </select>
             </div>

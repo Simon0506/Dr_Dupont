@@ -98,9 +98,6 @@ class AdminController
                 $servicesManager = new ServicesManager();
                 $services = $servicesManager->getServices();
                 $interval = new DateInterval('PT30M');
-            } else {
-                header('Location: index.php?page=appointmentAdmin&error=' . $date);
-                exit;
             }
         }
 
@@ -137,12 +134,7 @@ class AdminController
             $day = $datesManager->getDate($id_day);
             $services = $servicesManager->getServices();
             $interval = new DateInterval('PT30M');
-        } else {
-            header('Location: index.php?page=update-appointment&error=' . $date);
-            exit;
         }
-
-
         require 'views/update-appointment.php';
     }
 

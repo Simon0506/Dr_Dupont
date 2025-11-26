@@ -243,13 +243,15 @@ li {
     padding: 20px;
     font-size: large;
     text-align: center;
+    margin-top: 40px;
 }
 
 .validated, .updated {
-    color: darkgreen;
+    color: green;
     font-size: large;
     padding: 20px;
     text-align: center;
+    margin-top: 40px;
 }
 
 .articleCard {
@@ -330,7 +332,7 @@ textarea {
 }
 
 .adminForm {
-    width: 50%;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -338,6 +340,11 @@ textarea {
     gap: 20px;
     margin: auto;
     margin-bottom: 10px;
+}
+
+.adminForm .gridInput {
+    margin: auto;
+    gap: 10px;
 }
 
 .schedulesData {
@@ -481,133 +488,138 @@ td {
 
 @media (max-width:650px) {
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    flex-wrap: nowrap;
-  }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        flex-wrap: nowrap;
+    }
 
-  .burger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-  }
+    .burger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
 
-  .burger span {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    margin: 5px 0;
-  }
+    .burger span {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+    }
 
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s ease;
-    background-color: darkcyan;
-    position: absolute;
-    top: 60px;
-    right: -30px;
-    width: 50%;
-  }
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
+        background-color: darkcyan;
+        position: absolute;
+        top: 60px;
+        right: -30px;
+        width: 50%;
+    }
 
-  .navbar.open {
-    max-height: 400px;
-    padding-bottom: 10px;
-  }
+    .navbar.open {
+        max-height: 400px;
+        padding-bottom: 10px;
+    }
 
-  main {
-    margin: 0;
-    font-size:small;
-  }
+    main {
+        margin: 0;
+        font-size:small;
+    }
 
-  .title {
-    font-size: x-large;
-  }
+    .title {
+        font-size: x-large;
+    }
 
-  h2 {
-    font-size: large;
-  }
+    h2 {
+        font-size: large;
+    }
 
-  .home, .newsPage, .aboutPage, .servicePage, .servicesAdmin, .postsAdmin, .patientsAdmin, .appointmentPage {
-    margin: auto 10px;
-    margin-top: 50px;
-}
+    .home, .newsPage, .aboutPage, .servicePage, .servicesAdmin, .postsAdmin, .patientsAdmin, .appointmentPage {
+        margin: auto 10px;
+        margin-top: 50px;
+    }
 
-.addPage, .updatePage, .appointment {
-    margin: 100px 10px;
-}
+    .addPage, .updatePage, .appointment {
+        width: 80%;
+    }
 
-.introAbout, .introAboutReverse {
-    gap: 0;
-}
-  .photo {
-    max-height: 200px;
-    margin: 5px;
-  }
+    .introAbout, .introAboutReverse {
+        gap: 0;
+    }
+    .photo {
+        max-height: 200px;
+        margin: 5px;
+    }
 
-  .adminPage {
-    display: flex;
-    flex-direction: column;
-    margin: 40px 10px;
-  }
+    .adminPage {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 10px;
+    }
 
-  .list, .adminForm {
-    margin: 0;
-    width: 100%;
-    margin-bottom: 20px;
-}
-tr, td, th {
-    padding: 10px;
-}
+    .list, .adminForm {
+        margin: auto;
+        max-width: 100%;
+        width: fit-content;
+        margin-bottom: 20px;
+    }
+    tr, td, th {
+        padding: 10px;
+    }
 
-.table-scroll {
-    overflow-x: auto;
-    width: 100%;
-    padding-bottom: 10px;
-}
+    .table-scroll {
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 10px;
+    }
 
-.table-scroll table {
-    width: max-content;
-    border-collapse: collapse;
-}
+    .table-scroll table {
+        width: max-content;
+        border-collapse: collapse;
+    }
 
-.gridInput, .input, .date, .button {
-    font-size: small;
-}
+    .gridInput, .input, .date, .button {
+        font-size: small;
+    }
 
-.gridInput {
-    grid: auto / 3fr 5fr;
-}
+    .gridInput {
+        grid: auto / 3fr 5fr;
+    }
 
-.settings {
-    width: 100%;
-    margin: auto;
-    grid: auto / 1fr 1fr;
-}
+    .settings {
+        width: 100%;
+        margin: auto;
+        grid: auto / 1fr 1fr;
+    }
 
-.setting1 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
+    .setting1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
 
-.intro, .articles {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    .intro, .articles {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.gridCards {
-    gap: 5px;
-    margin: 0;
-}
+    .gridCards {
+        gap: 5px;
+        margin: 0;
+    }
 
-.card {
-    padding: 5px;
-}
+    .card {
+        padding: 5px;
+    }
+
+    .schedulesData {
+        gap: 15px;
+    }
 }

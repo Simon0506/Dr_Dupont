@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr Dupont</title>
-    <link rel="stylesheet" href="views/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/274d342162.js" crossorigin="anonymous"></script>
-    <script src="views/script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>

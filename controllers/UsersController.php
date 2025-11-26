@@ -131,9 +131,6 @@ class UsersController
                 $servicesManager = new ServicesManager();
                 $services = $servicesManager->getServices();
                 $interval = new DateInterval('PT30M');
-            } else {
-                header('Location: index.php?page=appointment&error=' . $date);
-                exit;
             }
         }
 
@@ -158,8 +155,11 @@ class UsersController
         $slotsManager = new SlotsManager();
         $slots = $slotsManager->getSlots($id_day) ?? null;
         $id_slot = $_GET['id_slot'] ?? null;
-        if ($id_day > 5) {
-            header('Location: index.php?page=appointment&error=closed');
+        if ($id_day > 5 && $_SESSION['user_role'] === 'patient') {
+            header('Location: index.php?page=appointment&error=closed&date=' . $date);
+            exit;
+        } else if ($id_day > 5 && $_SESSION['user_role'] === 'pro') {
+            header('Location: index.php?page=appointmentAdmin&error=closed&date=' . $date . '&id=' . $id);
             exit;
         } else if ($_SESSION['user_role'] === 'patient') {
             header('Location: index.php?page=appointment&id=' . $id . '&date=' . $date);

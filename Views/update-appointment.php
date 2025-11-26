@@ -20,7 +20,8 @@
                 <label for="name">Nom :</label>
                 <select name="name" id="name" class="input">
                     <?php foreach ($users as $user) { ?>
-                        <option value="<?php echo $user->getId(); ?>" <?php if ($user->getId() === $patient->getId()) { ?>selected<?php } ?>><?php echo $user->getName(); ?></option>
+                        <option value="<?php echo $user->getId(); ?>" <?php if (isset($_GET['id']) && $user->getId() === (int) $_GET['id']) { ?>selected<?php } else if (!isset($_GET['id']) && $user->getId() === $patient->getId()) { ?>selected<?php } ?>><?php echo $user->getName(); ?>
+                        </option>
                     <?php } ?>
                 </select>
             </div>
