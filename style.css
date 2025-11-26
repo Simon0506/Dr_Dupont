@@ -546,7 +546,7 @@ td {
         margin-top: 50px;
     }
 
-    .addPage, .updatePage, .appointment {
+    .addPage, .updatePage, .appointment, .login {
         width: 80%;
     }
 
