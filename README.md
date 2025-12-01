@@ -53,14 +53,14 @@ Define exceptional closures or special openings
 
 The application follows a classic MVC architecture:
 
-/controllers
-/models
-/views
-/assets
-index.php
-dupont.sql
-script.js
-style.css
+- /controllers
+- /models
+- /views
+- /assets
+- index.php
+- dupont.sql
+- script.js
+- style.css
 
 
 Models → manage the data logic and database interactions
